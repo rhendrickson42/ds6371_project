@@ -14,5 +14,4 @@ Due Date: Sunday April 15, 11:59PM
 1. [Collabedit Document](http://collabedit.com/7f8hc)
 1. [Kaggle Project Site](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
 1. [Kaggle Explanatory Video](https://www.youtube.com/watch?v=0QJtczDPxZQ)
-
-
+1. [The Word Doc](https://cdn.rawgit.com/rhendrickson42/ds6371_project/master/docs/MSDS6371ProjectDescription.docx)
