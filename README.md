@@ -12,6 +12,7 @@ Due Date: Sunday April 15, 11:59PM
 ## Referential Links
 1. [Slack Channel](https://msdssmu-collaboration.slack.com/messages/CA0P53HNE/)
 1. [GoToMeeting](https://app.gotomeeting.com/?meetingId=336080109)
+    * Dial In:  1-312-757-2139 ; Access Code: 336-080-109
 1. [Collabedit Document](http://collabedit.com/7f8hc)
 1. [Kaggle Project Site](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
 1. [Kaggle Explanatory Video](https://www.youtube.com/watch?v=0QJtczDPxZQ)
