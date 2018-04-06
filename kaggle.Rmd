@@ -1,0 +1,34 @@
+---
+title: "MSDS 6371 Kaggle Project"
+author: "Team Awesome"
+date: "April 5, 2018"
+output: html_document
+---
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+  pdf_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE, echo=TRUE}
+library(knitr)
+
+# Clean the workspace, remove all existing Objects
+rm(list=ls())
+knitr::opts_chunk$set(echo = TRUE)
+
+# Perform environment setup
+source('code/00_Setup.R')
+
+source('code/01_LoadData.R')
+# Creates dataframe:  hr_employee_attrition
+```
+
+## R Markdown
+
+
+## Including Plots
+
