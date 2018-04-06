@@ -17,7 +17,7 @@ Due Date: Sunday April 15, 11:59PM
 1. [Kaggle Explanatory Video](https://www.youtube.com/watch?v=0QJtczDPxZQ)
 1. [The Word Doc](https://github.com/rhendrickson42/ds6371_project/blob/master/docs/MSDS6371ProjectDescription.docx?raw=true)
 
-## URL's to the Various datasets
+## URL's to the Various datasets (for convenience of copy and paste)
 ```
 https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/kaggle/train.csv?token=AC0Mh1JjkWOapZfRF3ibtc7MJgsBWPjAks5az-w2wA%3D%3D
 
