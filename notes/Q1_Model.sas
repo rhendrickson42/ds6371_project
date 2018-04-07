@@ -36,8 +36,8 @@ run; quit;
 
 proc sgplot data=dataset2;
     scatter x=LogGrLivArea y=LogSalePrice / Group=Neighborhood;
-    where Neighborhood="Edwards (Removed: 524,1299)";
-    TITLE "Log-Log: Edwards"; 
+    where Neighborhood="Edwards";
+    TITLE "Log-Log: Edwards  (Removed: 524,1299)"; 
 run; quit;
 
 proc sgplot data=dataset2;
