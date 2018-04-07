@@ -46,3 +46,11 @@ getAllNA(cleantrain)
 qoi1 <- cleantrain[which(train$Neighborhood %in% c('NAmes','Edwards','BrkSide')),]
 
 qoi1[which(as.character(qoi1$Neighborhood) == 'Edwards' & qoi1$SalePrice > 310000 ),]
+obs <- qoi1[which(qoi1$Id == 725),]
+qoi1[which(qoi1$GrLivArea > 3000 & as.character(qoi1$Neighborhood) == 'Edwards'),]$Id
+summary(qoi1$GrLivArea)
+summary(qoi1$SalePrice)
+
+obs <- qoi1[which(as.character(qoi1$Neighborhood) == 'BrkSide' & qoi1$GrLivArea < 500 ),]
+summary(qoi1[which(as.character(qoi1$Neighborhood) == 'Edwards'),]$GrLivArea)
+
