@@ -44,3 +44,5 @@ getAllNA(cleantrain)
 
 
 qoi1 <- cleantrain[which(train$Neighborhood %in% c('NAmes','Edwards','BrkSide')),]
+
+qoi1[which(as.character(qoi1$Neighborhood) == 'Edwards' & qoi1$SalePrice > 310000 ),]
