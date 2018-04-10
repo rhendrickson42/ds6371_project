@@ -18,6 +18,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+![Kaggle House Prices](images/Kaggle.png)
+\pagebreak
 
 ## Introduction
 
