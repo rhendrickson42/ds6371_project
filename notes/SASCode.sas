@@ -480,3 +480,68 @@ proc print data = b; run;
 /***** REPRINT FOR COMPARISON ****************/
 /*  So we can compare with influence numbers */
 proc print data = dataset2; run;
+
+
+
+/*******************************************************************************/
+filename CSV URL "https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/kaggle/train.csv?token=AC0Mh1JjkWOapZfRF3ibtc7MJgsBWPjAks5az-w2wA%3D%3D";
+proc import datafile=CSV out=dataset
+    dbms=CSV replace;
+    getnames=yes;
+    datarow=2;
+run;
+/**
+   filename CSV URL "https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/clean/qoi1.csv?token=AC0MhyXwsRezAsjo2cXdgjbC9E-tjp3wks5a0ANawA%3D%3D";
+   (where = ((Neighborhood = 'Edwards' OR Neighborhood = 'NAmes' OR Neighborhood = 'BrkSide') AND (Id NE 524 AND Id NE 1299)))
+   ( where = (Id NE 524 AND Id NE 1299) )
+**/
+data dataset2;
+    set dataset;
+    if Neighborhood = 'Edwards'  then d1=1; else d1=0;
+    if Neighborhood = 'NAmes'    then d2=1; else d2=0;
+    if NOT(Neighborhood = 'Edwards') AND NOT(Neighborhood = 'NAmes') AND NOT(Neighborhood = 'BrkSide')  then d3=1; else d3=0;
+    
+    LogSalePrice = Log(SalePrice);
+    LogGrLivArea = Log(GrLivArea);
+    
+    int1 = d1*GrLivArea;
+    int2 = d2*GrLivArea;
+    int3 = d3*GrLivArea;
+    
+    int1Log = d1*LogGrLivArea;
+    int2Log = d2*LogGrLivArea;
+    int3Log = d3*LogGrLivArea;
+    
+    cent1 = (GrLivArea - 1301.83)*(d1 - 0.0673077);
+    cent2 = (GrLivArea - 1301.83)*(d2 - 0.1545330);
+    cent3 = (GrLivArea - 1301.83)*(d3 - 0.7383242);
+    
+    cent1Log = (LogGrLivArea - 7.2644820)*(d1 - 0.0673077);
+    cent2Log = (LogGrLivArea - 7.2644820)*(d2 - 0.1545330);
+    cent3Log = (LogGrLivArea - 7.2644820)*(d3 - 0.7383242);
+run;
+
+proc means data=dataset2;
+var GrLivArea LogGrLivArea d1 d2 d3;
+where GrLivArea < 4000;
+run;
+
+/**************************************************************/
+
+data dataset3;
+    if LtFrntg = . then LotFrontage = ''; else LotFrontage = LtFrntg;
+    set dataset2 (rename=( LotFrontage = LtFrntg ));
+    (keep=Id SalePrice MSSubClass MSZoning LotFrontage LotArea Street Alley LotShape LandContour Utilities LotConfig LandSlope Neighborhood Condition1 Condition2 BldgType HouseStyle OverallQual OverallCond YearBuilt YearRemodAdd);
+run;
+
+proc print data = dataset3 (obs=10); run;
+
+proc sgscatter data=dataset3;
+matrix SalePrice MSSubClass LotArea  OverallQual OverallCond YearBuilt YearRemodAdd / DIAGONAL=(HISTOGRAM); 
+run;
+
+proc sgscatter data=dataset3;
+matrix SalePrice MSSubClass MSZoning     LotFrontage LotArea    Street   Alley      LotShape    LandContour Utilities 
+       LotConfig LandSlope  Neighborhood Condition1  Condition2 BldgType HouseStyle OverallQual OverallCond YearBuilt 
+       YearRemodAdd / DIAGONAL=(HISTOGRAM);
+run;

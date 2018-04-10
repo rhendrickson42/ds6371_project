@@ -1,0 +1,31 @@
+SalePrice    - 
+MSSubClass   -
+MSZoning     -
+
+LotFrontage  - YES (NA = 259) Linear feet of street connected to property
+   Min.  1st Qu.  Median    Mean  3rd Qu.   Max.    NA's 
+  
+  21.00   59.00    69.00   70.05   80.00   313.00   259 
+
+LotArea      - 
+Street       -
+
+Alley        - YES (NA = 1369) Type of alley access
+Grvl Pave NA's 
+  
+50   41   1369 
+
+LotShape     - 
+LandContour 
+Utilities 
+LotConfig 
+LandSlope  
+Neighborhood 
+Condition1  
+Condition2 
+BldgType 
+HouseStyle 
+OverallQual 
+OverallCond 
+YearBuilt 
+YearRemodAdd
