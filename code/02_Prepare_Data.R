@@ -53,17 +53,16 @@ getUnique <- function(df) {
       strmsg <- sprintf("Unique values for Column %s\n", colname)
       cat( strmsg  )
       uniq <- paste(shQuote( unique( as.character(df[,colidx]) ) , type="cmd"), collapse=", ")
+      
+      lineOut <- sprintf("%s: %s", colname, uniq)
+      write(lineOut, file=uniqueFile, append=TRUE)
+      count <- count + 1
+      
       uniq <- sprintf("%s\n", uniq)
       cat( uniq  )
       cat( sprintf("\n\n") )
-      
-      write(strmsg, file=uniqueFile, append=TRUE)
-      write(uniq, file=uniqueFile, append=TRUE)
-      count <- count + 1
     }
   }
-  msg <- sprintf("%d Character columns with Unique values\n", count)
-  write(msg, file=uniqueFile, append=TRUE)
 }
 
 cleantrain <- fixNA(train)
