@@ -114,4 +114,12 @@ For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive m
 
 ### Question 1
 
+#### Plots of Untransformed Data
+![Image 001 - BrkSide](images/Untransformed-BrkSide.png)
+![Image 002 - Edwards](images/Untransformed-Edwards.png)
+![Image 003 - NAmes](images/Untransformed-NAmes.png)
+![Image 004 - Other Neighborhoods](images/Untransformed-Others.png)
+![Image 005 - MLR Parameter Estimates](images/Untransformed-MLR-Estimates.png)
+![Image 006 - MLR Residual Plots](images/Untransformed-MLR-Residuals.png)
+
 ### Question 2
