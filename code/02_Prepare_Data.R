@@ -2,6 +2,9 @@
 # Make sure the names for the Neighborhoods we are interested are all spelled correctly
 sort(unique(train$Neighborhood))
 
+uniqueFile <- "data/train-unique.txt"
+if (file.exists(uniqueFile)) file.remove(uniqueFile)
+
 
 getAllNA <- function(df) {
     nmax <- length(names(df))
@@ -39,6 +42,30 @@ fixNA <- function(df) {
     return (newdf)
 }
 
+getUnique <- function(df) {
+  nmax <- length(names(df))
+  
+  count <- 0
+  for (colidx in 1:nmax) {
+    colname <- names(df)[colidx]
+    classtype <- class(df[0,colidx])
+    if (classtype == "factor") {
+      strmsg <- sprintf("Unique values for Column %s\n", colname)
+      cat( strmsg  )
+      uniq <- paste(shQuote( unique( as.character(df[,colidx]) ) , type="cmd"), collapse=", ")
+      uniq <- sprintf("%s\n", uniq)
+      cat( uniq  )
+      cat( sprintf("\n\n") )
+      
+      write(strmsg, file=uniqueFile, append=TRUE)
+      write(uniq, file=uniqueFile, append=TRUE)
+      count <- count + 1
+    }
+  }
+  msg <- sprintf("%d Character columns with Unique values\n", count)
+  write(msg, file=uniqueFile, append=TRUE)
+}
+
 cleantrain <- fixNA(train)
 getAllNA(cleantrain)
 
@@ -54,3 +81,5 @@ summary(qoi1$SalePrice)
 obs <- qoi1[which(as.character(qoi1$Neighborhood) == 'BrkSide' & qoi1$GrLivArea < 500 ),]
 summary(qoi1[which(as.character(qoi1$Neighborhood) == 'Edwards'),]$GrLivArea)
 
+
+getUnique(train)

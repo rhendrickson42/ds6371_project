@@ -1,0 +1,174 @@
+Unique values for Column MSZoning
+
+"RL", "RM", "C (all)", "FV", "RH"
+
+Unique values for Column Street
+
+"Pave", "Grvl"
+
+Unique values for Column Alley
+
+"NA", "Grvl", "Pave"
+
+Unique values for Column LotShape
+
+"Reg", "IR1", "IR2", "IR3"
+
+Unique values for Column LandContour
+
+"Lvl", "Bnk", "Low", "HLS"
+
+Unique values for Column Utilities
+
+"AllPub", "NoSeWa"
+
+Unique values for Column LotConfig
+
+"Inside", "FR2", "Corner", "CulDSac", "FR3"
+
+Unique values for Column LandSlope
+
+"Gtl", "Mod", "Sev"
+
+Unique values for Column Neighborhood
+
+"CollgCr", "Veenker", "Crawfor", "NoRidge", "Mitchel", "Somerst", "NWAmes", "OldTown", "BrkSide", "Sawyer", "NridgHt", "NAmes", "SawyerW", "IDOTRR", "MeadowV", "Edwards", "Timber", "Gilbert", "StoneBr", "ClearCr", "NPkVill", "Blmngtn", "BrDale", "SWISU", "Blueste"
+
+Unique values for Column Condition1
+
+"Norm", "Feedr", "PosN", "Artery", "RRAe", "RRNn", "RRAn", "PosA", "RRNe"
+
+Unique values for Column Condition2
+
+"Norm", "Artery", "RRNn", "Feedr", "PosN", "PosA", "RRAn", "RRAe"
+
+Unique values for Column BldgType
+
+"1Fam", "2fmCon", "Duplex", "TwnhsE", "Twnhs"
+
+Unique values for Column HouseStyle
+
+"2Story", "1Story", "1.5Fin", "1.5Unf", "SFoyer", "SLvl", "2.5Unf", "2.5Fin"
+
+Unique values for Column RoofStyle
+
+"Gable", "Hip", "Gambrel", "Mansard", "Flat", "Shed"
+
+Unique values for Column RoofMatl
+
+"CompShg", "WdShngl", "Metal", "WdShake", "Membran", "Tar&Grv", "Roll", "ClyTile"
+
+Unique values for Column Exterior1st
+
+"VinylSd", "MetalSd", "Wd Sdng", "HdBoard", "BrkFace", "WdShing", "CemntBd", "Plywood", "AsbShng", "Stucco", "BrkComm", "AsphShn", "Stone", "ImStucc", "CBlock"
+
+Unique values for Column Exterior2nd
+
+"VinylSd", "MetalSd", "Wd Shng", "HdBoard", "Plywood", "Wd Sdng", "CmentBd", "BrkFace", "Stucco", "AsbShng", "Brk Cmn", "ImStucc", "AsphShn", "Stone", "Other", "CBlock"
+
+Unique values for Column MasVnrType
+
+"BrkFace", "None", "Stone", "BrkCmn", "NA"
+
+Unique values for Column ExterQual
+
+"Gd", "TA", "Ex", "Fa"
+
+Unique values for Column ExterCond
+
+"TA", "Gd", "Fa", "Po", "Ex"
+
+Unique values for Column Foundation
+
+"PConc", "CBlock", "BrkTil", "Wood", "Slab", "Stone"
+
+Unique values for Column BsmtQual
+
+"Gd", "TA", "Ex", "NA", "Fa"
+
+Unique values for Column BsmtCond
+
+"TA", "Gd", "NA", "Fa", "Po"
+
+Unique values for Column BsmtExposure
+
+"No", "Gd", "Mn", "Av", "NA"
+
+Unique values for Column BsmtFinType1
+
+"GLQ", "ALQ", "Unf", "Rec", "BLQ", "NA", "LwQ"
+
+Unique values for Column BsmtFinType2
+
+"Unf", "BLQ", "NA", "ALQ", "Rec", "LwQ", "GLQ"
+
+Unique values for Column Heating
+
+"GasA", "GasW", "Grav", "Wall", "OthW", "Floor"
+
+Unique values for Column HeatingQC
+
+"Ex", "Gd", "TA", "Fa", "Po"
+
+Unique values for Column CentralAir
+
+"Y", "N"
+
+Unique values for Column Electrical
+
+"SBrkr", "FuseF", "FuseA", "FuseP", "Mix", "NA"
+
+Unique values for Column KitchenQual
+
+"Gd", "TA", "Ex", "Fa"
+
+Unique values for Column Functional
+
+"Typ", "Min1", "Maj1", "Min2", "Mod", "Maj2", "Sev"
+
+Unique values for Column FireplaceQu
+
+"NA", "TA", "Gd", "Fa", "Ex", "Po"
+
+Unique values for Column GarageType
+
+"Attchd", "Detchd", "BuiltIn", "CarPort", "NA", "Basment", "2Types"
+
+Unique values for Column GarageFinish
+
+"RFn", "Unf", "Fin", "NA"
+
+Unique values for Column GarageQual
+
+"TA", "Fa", "Gd", "NA", "Ex", "Po"
+
+Unique values for Column GarageCond
+
+"TA", "Fa", "NA", "Gd", "Po", "Ex"
+
+Unique values for Column PavedDrive
+
+"Y", "N", "P"
+
+Unique values for Column PoolQC
+
+"NA", "Ex", "Fa", "Gd"
+
+Unique values for Column Fence
+
+"NA", "MnPrv", "GdWo", "GdPrv", "MnWw"
+
+Unique values for Column MiscFeature
+
+"NA", "Shed", "Gar2", "Othr", "TenC"
+
+Unique values for Column SaleType
+
+"WD", "New", "COD", "ConLD", "ConLI", "CWD", "ConLw", "Con", "Oth"
+
+Unique values for Column SaleCondition
+
+"Normal", "Abnorml", "Partial", "AdjLand", "Alloca", "Family"
+
+43 Character columns with Unique values
+

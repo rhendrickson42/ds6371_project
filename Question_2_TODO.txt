@@ -1,0 +1,5 @@
+Question 2
+
+Select which variables should be used for the model (select variables that make sense)
+    Review scatterplots
+Analyze 81 variables for need of Transformation
