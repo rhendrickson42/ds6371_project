@@ -1,0 +1,82 @@
+---
+title: "DDSAnalytics  - Employee Trends"
+author:
+- Randall Hendrickson
+- Rajat Chandna
+- Lokesh Maganti
+- Mike Kelleher
+date: "April 15, 2018"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+  pdf_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This is the final project for the semester in MSDS 6371 Statistical Foundation for Data Science, and is a group project.  It is based on the [Kaggle House Prices competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).  Fundamentally we are seeking to answer: based on some combination of predictive attribute measures of a housem how much will the final sale price be.  The 2 specific questions prescribe to distinct approaches to answering this question.
+
+## Data Description
+
+As mentioned above, the data comes from the [Kaggle House Prices competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).  The specific data sets we use for this project are the training data set (train.csv) to build the models, and test data set (test.csv) to cross-validate our models.
+
+### train.csv
+
+This dataset is roughly 450k with 1460 observations of 81 variables.  To read and understand more about this specific dataset please refer to the Kaggle website at [https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data).
+
+### test.csv
+
+This dataset, is roughly 441k with 1459 observation of 80 variables.  This has one less observation: SalesPrices.  This is due to the fact it is meant to be used for cross-validation, and does not require this variable.
+
+### Primary Variables
+
+The following variables are fundamental to the answer for Question 1, do not contain missing values, and require no cleaning:
+* SalePrice - the property's sale price in dollars
+* GrLivArea - Above grade (ground) living area square feet
+* Neighborhood - Physical locations within Ames city limits
+
+## Question 1
+
+### The Problem
+
+Provide for Century 21 Ames real estate the following analysis of homes:
+
+For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive model for home SalePrice based on GrLivArea.  Provide the model assumptions assessment with evidence, as well as data review and outlier analysis.  Please provide estimate or estimates with confidence intervals, and a written conclusion of the relationship of GrLivArea and SalePrice within these neighborhoods.
+
+### Assumptions
+
+### Comparison of Competing Models
+
+### Parameters
+* Estimates
+* Interpretation
+* Confidence Intervals
+
+### Conclusion
+
+## Question 2
+
+### The Problem
+
+### Model Selection
+
+#### Forward
+
+##### Assumptions
+
+### Comparison of Models
+
+### Conclusion
+
+## Appendix
+
+### Question 1
+
+### Question 2

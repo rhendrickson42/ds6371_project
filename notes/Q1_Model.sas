@@ -1,14 +1,19 @@
-filename CSV URL "https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/clean/qoi1.csv?token=AC0MhyXwsRezAsjo2cXdgjbC9E-tjp3wks5a0ANawA%3D%3D";
+filename CSV URL "https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/kaggle/train.csv?token=AC0Mh1JjkWOapZfRF3ibtc7MJgsBWPjAks5az-w2wA%3D%3D";
 proc import datafile=CSV out=dataset
-    (where = ((Neighborhood = 'Edwards' OR Neighborhood = 'NAmes' OR Neighborhood = 'BrkSide') AND (Id NE 524 AND Id NE 1299)))
     dbms=CSV replace;
     getnames=yes;
     datarow=2;
 run;
+/**
+   filename CSV URL "https://raw.githubusercontent.com/rhendrickson42/ds6371_project/master/data/clean/qoi1.csv?token=AC0MhyXwsRezAsjo2cXdgjbC9E-tjp3wks5a0ANawA%3D%3D";
+   (where = ((Neighborhood = 'Edwards' OR Neighborhood = 'NAmes' OR Neighborhood = 'BrkSide') AND (Id NE 524 AND Id NE 1299)))
+   ( where = (Id NE 524 AND Id NE 1299) )
+**/
 data dataset2;
     set dataset;
-    if Neighborhood = 'Edwards' then d1=1; else d1=0;
-    if Neighborhood = 'NAmes'   then d2=1; else d2=0;
+    if Neighborhood = 'Edwards'  then d1=1; else d1=0;
+    if Neighborhood = 'NAmes'    then d2=1; else d2=0;
+    if Neighborhood = 'BrkSide'  then d3=1; else d2=0;
     
     LogSalePrice = Log(SalePrice);
     LogGrLivArea = Log(GrLivArea);
@@ -45,6 +50,13 @@ proc sgplot data=dataset2;
     where Neighborhood="BrkSide";
     TITLE "Log-Log: BrkSide (Reference) (Removed: 524,1299)"; 
 run; quit;
+
+proc sgplot data=dataset2;
+    scatter x=LogGrLivArea y=LogSalePrice / Group=Neighborhood;
+    where NOT(Neighborhood="NAmes" OR Neighborhood="Edwards" OR Neighborhood="BrkSide");
+    TITLE "Log-Log: OTHER neighborhoods (Reference) (Removed: 524,1299)"; 
+run; quit;
+
 proc sgplot data=dataset2;
     scatter x=LogGrLivArea y=LogSalePrice / Group=Neighborhood;
     TITLE "Log-Log: All Data (Removed: 524,1299)"; 
