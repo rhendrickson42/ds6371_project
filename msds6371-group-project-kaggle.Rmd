@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-This is the final project for the semester in MSDS 6371 Statistical Foundation for Data Science, and is a group project.  It is based on the [Kaggle House Prices competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).  Fundamentally we are seeking to answer: based on some combination of predictive attribute measures of a housem how much will the final sale price be.  The 2 specific questions prescribe to distinct approaches to answering this question.
+This is the final project for the semester in MSDS 6371 Statistical Foundation for Data Science, and is a group project.  It is based on the [Kaggle House Prices competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).  Fundamentally we are seeking to answer what will the sale price of a house be based on some combination of predictive attribute measures of it.  The 2 specific questions below prescribe distinct approaches to answering this question.
 
 ## Data Description
 
@@ -33,7 +33,7 @@ This dataset is roughly 450k with 1460 observations of 81 variables.  To read an
 
 ### test.csv
 
-This dataset, is roughly 441k with 1459 observation of 80 variables.  This has one less observation: SalesPrices.  This is due to the fact it is meant to be used for cross-validation, and does not require this variable.
+This dataset, is roughly 441k with 1459 observation of 80 variables.  This has one less observation: SalesPrices.  This is due to the fact it is meant to be used for cross-validation, and does not require this variable because we are meant to predict that with our models.
 
 ### Primary Variables
 
@@ -46,11 +46,14 @@ The following variables are fundamental to the answer for Question 1, do not con
 
 ### The Problem
 
-Provide for Century 21 Ames real estate the following analysis of homes:
+Ames Century 21 real estate would like us to perform the following analysis of homes:
 
 For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive model for home SalePrice based on GrLivArea.  Provide the model assumptions assessment with evidence, as well as data review and outlier analysis.  Please provide estimate or estimates with confidence intervals, and a written conclusion of the relationship of GrLivArea and SalePrice within these neighborhoods.
 
 ### Assumptions
+* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
+* Normality (Residual: Scatter, QQ Plot, Histogram)
+* Equal Standard Deviation (Residual Scatter Plots)
 
 ### Comparison of Competing Models
 
@@ -70,8 +73,38 @@ For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive m
 #### Forward
 
 ##### Assumptions
+* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
+* Normality (Residual: Scatter, QQ Plot, Histogram)
+* Equal Standard Deviation (Residual Scatter Plots)
+
+#### Backward
+
+##### Assumptions
+* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
+* Normality (Residual: Scatter, QQ Plot, Histogram)
+* Equal Standard Deviation (Residual Scatter Plots)
+
+#### Stepwise
+
+##### Assumptions
+* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
+* Normality (Residual: Scatter, QQ Plot, Histogram)
+* Equal Standard Deviation (Residual Scatter Plots)
+
+#### Custom
+
+##### Assumptions
+* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
+* Normality (Residual: Scatter, QQ Plot, Histogram)
+* Equal Standard Deviation (Residual Scatter Plots)
 
 ### Comparison of Models
+| Predictive Models | Adusted R^2 | CV Press | Kaggle Score |
+|-------------------|:-----------:|:--------:|:------------:|
+| Forward           | 0.1111      | 1111     | .111         |
+| Backward          | 0.2222      | 2222     | .222         |
+| Stepwise          | 0.3333      | 3333     | .333         |
+| Custom            | 0.4444      | 4444     | .444         |
 
 ### Conclusion
 

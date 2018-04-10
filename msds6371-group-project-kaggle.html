@@ -138,14 +138,12 @@ $(document).ready(function () {
 <li><a href="#question-1">Question 1</a></li>
 <li><a href="#question-2">Question 2</a></li>
 <li><a href="#appendix">Appendix</a></li>
-<li><a href="#question-1-1">Question 1</a></li>
-<li><a href="#question-2-1">Question 2</a></li>
 </ul>
 </div>
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This is the final project for the semester in MSDS 6371 Statistical Foundation for Data Science, and is a group project. It is based on the <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle House Prices competition</a>. Fundamentally we are seeking to answer: based on some combination of predictive attribute measures of a housem how much will the final sale price be. The 2 specific questions prescribe to distinct approaches to answering this question.</p>
+<p>This is the final project for the semester in MSDS 6371 Statistical Foundation for Data Science, and is a group project. It is based on the <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle House Prices competition</a>. Fundamentally we are seeking to answer what will the sale price of a house be based on some combination of predictive attribute measures of it. The 2 specific questions below prescribe distinct approaches to answering this question.</p>
 </div>
 <div id="data-description" class="section level2">
 <h2>Data Description</h2>
@@ -156,7 +154,7 @@ $(document).ready(function () {
 </div>
 <div id="test.csv" class="section level3">
 <h3>test.csv</h3>
-<p>This dataset, is roughly 441k with 1459 observation of 80 variables. This has one less observation: SalesPrices. This is due to the fact it is meant to be used for cross-validation, and does not require this variable.</p>
+<p>This dataset, is roughly 441k with 1459 observation of 80 variables. This has one less observation: SalesPrices. This is due to the fact it is meant to be used for cross-validation, and does not require this variable because we are meant to predict that with our models.</p>
 </div>
 <div id="primary-variables" class="section level3">
 <h3>Primary Variables</h3>
@@ -167,11 +165,16 @@ $(document).ready(function () {
 <h2>Question 1</h2>
 <div id="the-problem" class="section level3">
 <h3>The Problem</h3>
-<p>Provide for Century 21 Ames real estate the following analysis of homes:</p>
+<p>Ames Century 21 real estate would like us to perform the following analysis of homes:</p>
 <p>For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive model for home SalePrice based on GrLivArea. Provide the model assumptions assessment with evidence, as well as data review and outlier analysis. Please provide estimate or estimates with confidence intervals, and a written conclusion of the relationship of GrLivArea and SalePrice within these neighborhoods.</p>
 </div>
 <div id="assumptions" class="section level3">
 <h3>Assumptions</h3>
+<ul>
+<li>Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)</li>
+<li>Normality (Residual: Scatter, QQ Plot, Histogram)</li>
+<li>Equal Standard Deviation (Residual Scatter Plots)</li>
+</ul>
 </div>
 <div id="comparison-of-competing-models" class="section level3">
 <h3>Comparison of Competing Models</h3>
@@ -199,11 +202,85 @@ $(document).ready(function () {
 <h4>Forward</h4>
 <div id="assumptions-1" class="section level5">
 <h5>Assumptions</h5>
+<ul>
+<li>Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)</li>
+<li>Normality (Residual: Scatter, QQ Plot, Histogram)</li>
+<li>Equal Standard Deviation (Residual Scatter Plots)</li>
+</ul>
+</div>
+</div>
+<div id="backward" class="section level4">
+<h4>Backward</h4>
+<div id="assumptions-2" class="section level5">
+<h5>Assumptions</h5>
+<ul>
+<li>Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)</li>
+<li>Normality (Residual: Scatter, QQ Plot, Histogram)</li>
+<li>Equal Standard Deviation (Residual Scatter Plots)</li>
+</ul>
+</div>
+</div>
+<div id="stepwise" class="section level4">
+<h4>Stepwise</h4>
+<div id="assumptions-3" class="section level5">
+<h5>Assumptions</h5>
+<ul>
+<li>Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)</li>
+<li>Normality (Residual: Scatter, QQ Plot, Histogram)</li>
+<li>Equal Standard Deviation (Residual Scatter Plots)</li>
+</ul>
+</div>
+</div>
+<div id="custom" class="section level4">
+<h4>Custom</h4>
+<div id="assumptions-4" class="section level5">
+<h5>Assumptions</h5>
+<ul>
+<li>Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)</li>
+<li>Normality (Residual: Scatter, QQ Plot, Histogram)</li>
+<li>Equal Standard Deviation (Residual Scatter Plots)</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="comparison-of-models" class="section level3">
 <h3>Comparison of Models</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Predictive Models</th>
+<th align="center">Adusted R^2</th>
+<th align="center">CV Press</th>
+<th align="center">Kaggle Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Forward</td>
+<td align="center">0.1111</td>
+<td align="center">1111</td>
+<td align="center">.111</td>
+</tr>
+<tr class="even">
+<td>Backward</td>
+<td align="center">0.2222</td>
+<td align="center">2222</td>
+<td align="center">.222</td>
+</tr>
+<tr class="odd">
+<td>Stepwise</td>
+<td align="center">0.3333</td>
+<td align="center">3333</td>
+<td align="center">.333</td>
+</tr>
+<tr class="even">
+<td>Custom</td>
+<td align="center">0.4444</td>
+<td align="center">4444</td>
+<td align="center">.444</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="conclusion-1" class="section level3">
 <h3>Conclusion</h3>
@@ -211,12 +288,12 @@ $(document).ready(function () {
 </div>
 <div id="appendix" class="section level2">
 <h2>Appendix</h2>
+<div id="question-1-1" class="section level3">
+<h3>Question 1</h3>
 </div>
-<div id="question-1-1" class="section level1">
-<h1>Question 1</h1>
+<div id="question-2-1" class="section level3">
+<h3>Question 2</h3>
 </div>
-<div id="question-2-1" class="section level1">
-<h1>Question 2</h1>
 </div>
 
 
