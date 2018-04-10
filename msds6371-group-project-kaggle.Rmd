@@ -10,13 +10,16 @@ output:
   html_document:
     toc: true
     toc_depth: 2
+    fig_caption: yes
   pdf_document:
     toc: true
     toc_depth: 2
+    fig_caption: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, echo=FALSE}
+library(knitr)
+knitr::opts_chunk$set(fig.path = 'images/', echo = FALSE)
 ```
 ![Kaggle House Prices](images/Kaggle.png)
 \pagebreak
@@ -51,6 +54,14 @@ The following variables are fundamental to the answer for Question 1, do not con
 Ames Century 21 real estate would like us to perform the following analysis of homes:
 
 For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive model for home SalePrice based on GrLivArea.  Provide the model assumptions assessment with evidence, as well as data review and outlier analysis.  Please provide estimate or estimates with confidence intervals, and a written conclusion of the relationship of GrLivArea and SalePrice within these neighborhoods.
+
+Untransformed Data
+
+When looking at plots of the raw data, there is a clear linear relationship between GrLivArea and SalePrice.  However, we can start to see there may be some issues with some of the points on Image 002, Image 003, and Image 004.  These will be explored later.
+
+Most of the parameter estimates look good except for d3
+
+
 
 ### Assumptions
 * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
@@ -115,11 +126,11 @@ For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive m
 ### Question 1
 
 #### Plots of Untransformed Data
-![Image 001 - BrkSide](images/Untransformed-BrkSide.png)
-![Image 002 - Edwards](images/Untransformed-Edwards.png)
-![Image 003 - NAmes](images/Untransformed-NAmes.png)
-![Image 004 - Other Neighborhoods](images/Untransformed-Others.png)
-![Image 005 - MLR Parameter Estimates](images/Untransformed-MLR-Estimates.png)
-![Image 006 - MLR Residual Plots](images/Untransformed-MLR-Residuals.png)
+![BrkSide](images/Untransformed-BrkSide.png)*Image 001*
+![Edwards](images/Untransformed-Edwards.png)*Image 002*
+![NAmes](images/Untransformed-NAmes.png)*Image 003*
+![Other Neighborhoods](images/Untransformed-Others.png)*Image 004*
+![MLR Parameter Estimates](images/Untransformed-MLR-Estimates.png)*Image 005*
+![MLR Residual Plots](images/Untransformed-MLR-Residuals.png)*Image 006*
 
 ### Question 2
