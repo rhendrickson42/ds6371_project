@@ -1,6 +1,8 @@
+filename CSV URL "https://dl.dropboxusercontent.com/spa/afq05cp80hp4ezn/downloads/public/msds-data/test.csv";
+
 data TEST1;
 %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
-infile 'D:\dataScience\2018\stats\kaggle\ds6371_project\data\kaggle\test.csv'
+infile CSV
 delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
 /* note regex used : \d\d\d[ ]* */
 informat Id 4. ;
