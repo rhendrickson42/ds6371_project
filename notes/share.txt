@@ -1,3 +1,22 @@
+LotFrontage  - Lin
+	LotArea
+LotArea      - Lin
+OverallQual  - Squared
+	LotArea
+OverallCond  - Squared
+	LotArea
+YearBuilt    - Squared
+	LotFrontage
+	LotArea
+	YearRemodAdd
+YearRemodAdd - Squared
+	LotFrontage
+	LotArea
+	YearBuilt
+
+    
+
+
 SalePrice    - 
 MSSubClass   -
 MSZoning     -
@@ -29,3 +48,37 @@ OverallQual
 OverallCond 
 YearBuilt 
 YearRemodAdd
+
+
+*   MSSubClass
+*   MSZoning
+    LotFrontage
+    LotArea
+*   Street
+*   Alley
+*   LotShape
+*   LandContour
+*   Utilities
+*   LotConfig
+*   LandSlope
+*   Neighborhood
+*   Condition1
+*   Condition2
+*   BldgType
+*   HouseStyle
+    OverallQual
+    OverallCond
+    YearBuilt
+    YearRemodAdd
+
+proc sgscatter data=dataset3;
+matrix SalePrice MSSubClass MSZoning     LotFrontage LotArea    Street   Alley      LotShape    LandContour Utilities 
+       LotConfig LandSlope  Neighborhood Condition1  Condition2 BldgType HouseStyle OverallQual OverallCond YearBuilt 
+       YearRemodAdd / DIAGONAL=(HISTOGRAM);
+run;
+
+    
+proc sgscatter data=dataset3;
+matrix SalePrice  LotFrontage    LotArea    OverallQual    OverallCond    YearBuilt    YearRemodAdd / DIAGONAL=(HISTOGRAM); 
+run;
+

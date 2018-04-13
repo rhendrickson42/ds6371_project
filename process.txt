@@ -1,0 +1,21 @@
+1) Fix violations in data, scatter plots of variables
+a) colineairty, correlation
+b) outliers, influence
+c) need transformations?
+
+2) Run model with everything
+a) Check VIF - outliers?  redundant variables?
+b) correlations?
+c) Dont delete vars until have figured out and have dataset that meets assumptions
+d) fit statistics
+e) residual plots - outliers, leverage (find, delete - if after research shows should be removed (from diff pop?)
+
+3) After Delete - re-run model
+a) R^2
+b) VIF
+c) Leverage
+d) QQPLOT
+e) Outliers again
+f) Repeat?
+
+4) Variable Selection + Cross Validation

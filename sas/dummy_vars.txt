@@ -1,0 +1,223 @@
+MSSubClass MSZoning LotFrontage LotArea Street Alley LotShape LandContour Utilities LotConfig LandSlope Neighborhood Condition1 Condition2 BldgType HouseStyle OverallQual OverallCond YearBuilt YearRemodAdd RoofStyle RoofMatl Exterior1st Exterior2nd MasVnrType MasVnrArea ExterQual ExterCond Foundation BsmtQual BsmtCond BsmtExposure BsmtFinType1 BsmtFinSF1 BsmtFinType2 BsmtFinSF2 BsmtUnfSF TotalBsmtSF Heating HeatingQC CentralAir Electrical _1stFlrSF _2ndFlrSF LowQualFinSF GrLivArea BsmtFullBath BsmtHalfBath FullBath HalfBath BedroomAbvGr KitchenAbvGr KitchenQual TotRmsAbvGrd Functional Fireplaces FireplaceQu GarageType GarageYrBlt GarageFinish GarageCars GarageArea GarageQual GarageCond PavedDrive WoodDeckSF OpenPorchSF EnclosedPorch _3SsnPorch ScreenPorch PoolArea PoolQC Fence MiscFeature MiscVal MoSold YrSold SaleType SaleCondition 
+
+
+ 
+ 
+ ERROR: Variable MSSubClass in list does not match type prescribed for this list.
+ ERROR: Variable MSZoning in list does not match type prescribed for this list.
+ ERROR: Variable Street in list does not match type prescribed for this list.
+ ERROR: Variable Alley in list does not match type prescribed for this list.
+ ERROR: Variable LotShape in list does not match type prescribed for this list.
+ ERROR: Variable LandContour in list does not match type prescribed for this list.
+ ERROR: Variable Utilities in list does not match type prescribed for this list.
+ ERROR: Variable LotConfig in list does not match type prescribed for this list.
+ ERROR: Variable LandSlope in list does not match type prescribed for this list.
+ ERROR: Variable Neighborhood in list does not match type prescribed for this list.
+ ERROR: Variable Condition1 in list does not match type prescribed for this list.
+ ERROR: Variable Condition2 in list does not match type prescribed for this list.
+ ERROR: Variable BldgType in list does not match type prescribed for this list.
+ ERROR: Variable HouseStyle in list does not match type prescribed for this list.
+ ERROR: Variable RoofStyle in list does not match type prescribed for this list.
+ ERROR: Variable RoofMatl in list does not match type prescribed for this list.
+ ERROR: Variable Exterior1st in list does not match type prescribed for this list.
+ ERROR: Variable Exterior2nd in list does not match type prescribed for this list.
+ ERROR: Variable MasVnrType in list does not match type prescribed for this list.
+ ERROR: Variable ExterQual in list does not match type prescribed for this list.
+ ERROR: Variable ExterCond in list does not match type prescribed for this list.
+ ERROR: Variable Foundation in list does not match type prescribed for this list.
+ ERROR: Variable BsmtQual in list does not match type prescribed for this list.
+ ERROR: Variable BsmtCond in list does not match type prescribed for this list.
+ ERROR: Variable BsmtExposure in list does not match type prescribed for this list.
+ ERROR: Variable BsmtFinType1 in list does not match type prescribed for this list.
+ ERROR: Variable BsmtFinType2 in list does not match type prescribed for this list.
+ ERROR: Variable Heating in list does not match type prescribed for this list.
+ ERROR: Variable HeatingQC in list does not match type prescribed for this list.
+ ERROR: Variable CentralAir in list does not match type prescribed for this list.
+ ERROR: Variable Electrical in list does not match type prescribed for this list.
+ ERROR: Variable KitchenQual in list does not match type prescribed for this list.
+ ERROR: Variable Functional in list does not match type prescribed for this list.
+ ERROR: Variable FireplaceQu in list does not match type prescribed for this list.
+ ERROR: Variable GarageType in list does not match type prescribed for this list.
+ ERROR: Variable GarageYrBlt in list does not match type prescribed for this list.
+ ERROR: Variable GarageFinish in list does not match type prescribed for this list.
+ ERROR: Variable GarageQual in list does not match type prescribed for this list.
+ ERROR: Variable GarageCond in list does not match type prescribed for this list.
+ ERROR: Variable PavedDrive in list does not match type prescribed for this list.
+ ERROR: Variable PoolQC in list does not match type prescribed for this list.
+ ERROR: Variable Fence in list does not match type prescribed for this list.
+ ERROR: Variable MiscFeature in list does not match type prescribed for this list.
+ ERROR: Variable SaleType in list does not match type prescribed for this list.
+ ERROR: Variable SaleCondition in list does not match type prescribed for this list.
+ 
+ 
+
+Unique values for Column MSZoning
+"RL", "RM", "C (all)", "FV", "RH"
+
+
+Unique values for Column Street
+"Pave", "Grvl"
+
+
+Unique values for Column Alley
+"NA", "Grvl", "Pave"
+
+
+Unique values for Column LotShape
+"Reg", "IR1", "IR2", "IR3"
+
+
+Unique values for Column LandContour
+"Lvl", "Bnk", "Low", "HLS"
+
+
+Unique values for Column Utilities
+"AllPub", "NoSeWa"
+
+
+Unique values for Column LotConfig
+"Inside", "FR2", "Corner", "CulDSac", "FR3"
+
+
+Unique values for Column LandSlope
+"Gtl", "Mod", "Sev"
+
+
+Unique values for Column Neighborhood
+"CollgCr", "Veenker", "Crawfor", "NoRidge", "Mitchel", "Somerst", "NWAmes", "OldTown", "BrkSide", "Sawyer", "NridgHt", "NAmes", "SawyerW", "IDOTRR", "MeadowV", "Edwards", "Timber", "Gilbert", "StoneBr", "ClearCr", "NPkVill", "Blmngtn", "BrDale", "SWISU", "Blueste"
+
+
+Unique values for Column Condition1
+"Norm", "Feedr", "PosN", "Artery", "RRAe", "RRNn", "RRAn", "PosA", "RRNe"
+
+
+Unique values for Column Condition2
+"Norm", "Artery", "RRNn", "Feedr", "PosN", "PosA", "RRAn", "RRAe"
+
+
+Unique values for Column BldgType
+"1Fam", "2fmCon", "Duplex", "TwnhsE", "Twnhs"
+
+
+Unique values for Column HouseStyle
+"2Story", "1Story", "1.5Fin", "1.5Unf", "SFoyer", "SLvl", "2.5Unf", "2.5Fin"
+
+
+Unique values for Column RoofStyle
+"Gable", "Hip", "Gambrel", "Mansard", "Flat", "Shed"
+
+
+Unique values for Column RoofMatl
+"CompShg", "WdShngl", "Metal", "WdShake", "Membran", "Tar&Grv", "Roll", "ClyTile"
+
+
+Unique values for Column Exterior1st
+"VinylSd", "MetalSd", "Wd Sdng", "HdBoard", "BrkFace", "WdShing", "CemntBd", "Plywood", "AsbShng", "Stucco", "BrkComm", "AsphShn", "Stone", "ImStucc", "CBlock"
+
+
+Unique values for Column Exterior2nd
+"VinylSd", "MetalSd", "Wd Shng", "HdBoard", "Plywood", "Wd Sdng", "CmentBd", "BrkFace", "Stucco", "AsbShng", "Brk Cmn", "ImStucc", "AsphShn", "Stone", "Other", "CBlock"
+
+
+Unique values for Column MasVnrType
+"BrkFace", "None", "Stone", "BrkCmn", "NA"
+
+
+Unique values for Column ExterQual
+"Gd", "TA", "Ex", "Fa"
+
+
+Unique values for Column ExterCond
+"TA", "Gd", "Fa", "Po", "Ex"
+
+
+Unique values for Column Foundation
+"PConc", "CBlock", "BrkTil", "Wood", "Slab", "Stone"
+
+
+Unique values for Column BsmtQual
+"Gd", "TA", "Ex", "NA", "Fa"
+
+
+Unique values for Column BsmtCond
+"TA", "Gd", "NA", "Fa", "Po"
+
+
+Unique values for Column BsmtExposure
+"No", "Gd", "Mn", "Av", "NA"
+
+
+Unique values for Column BsmtFinType1
+"GLQ", "ALQ", "Unf", "Rec", "BLQ", "NA", "LwQ"
+
+
+Unique values for Column BsmtFinType2
+"Unf", "BLQ", "NA", "ALQ", "Rec", "LwQ", "GLQ"
+
+
+Unique values for Column Heating
+"GasA", "GasW", "Grav", "Wall", "OthW", "Floor"
+
+
+Unique values for Column HeatingQC
+"Ex", "Gd", "TA", "Fa", "Po"
+
+
+Unique values for Column CentralAir
+"Y", "N"
+
+
+Unique values for Column Electrical
+"SBrkr", "FuseF", "FuseA", "FuseP", "Mix", "NA"
+
+
+Unique values for Column KitchenQual
+"Gd", "TA", "Ex", "Fa"
+
+
+Unique values for Column Functional
+"Typ", "Min1", "Maj1", "Min2", "Mod", "Maj2", "Sev"
+
+
+Unique values for Column FireplaceQu
+"NA", "TA", "Gd", "Fa", "Ex", "Po"
+
+
+Unique values for Column GarageType
+"Attchd", "Detchd", "BuiltIn", "CarPort", "NA", "Basment", "2Types"
+
+
+Unique values for Column GarageFinish
+"RFn", "Unf", "Fin", "NA"
+
+
+Unique values for Column GarageQual
+"TA", "Fa", "Gd", "NA", "Ex", "Po"
+
+
+Unique values for Column GarageCond
+"TA", "Fa", "NA", "Gd", "Po", "Ex"
+
+
+Unique values for Column PavedDrive
+"Y", "N", "P"
+
+
+Unique values for Column PoolQC
+"NA", "Ex", "Fa", "Gd"
+
+
+Unique values for Column Fence
+"NA", "MnPrv", "GdWo", "GdPrv", "MnWw"
+
+
+Unique values for Column MiscFeature
+"NA", "Shed", "Gar2", "Othr", "TenC"
+
+
+Unique values for Column SaleType
+"WD", "New", "COD", "ConLD", "ConLI", "CWD", "ConLw", "Con", "Oth"
+
+
+Unique values for Column SaleCondition
+"Normal", "Abnorml", "Partial", "AdjLand", "Alloca", "Family"
