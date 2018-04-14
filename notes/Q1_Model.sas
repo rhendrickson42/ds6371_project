@@ -13,7 +13,7 @@ data dataset2;
     set dataset;
     if Neighborhood = 'Edwards'  then d1=1; else d1=0;
     if Neighborhood = 'NAmes'    then d2=1; else d2=0;
-    if Neighborhood = 'BrkSide'  then d3=1; else d2=0;
+    if Neighborhood = 'BrkSide'  then d3=1; else d3=0;
     
     LogSalePrice = Log(SalePrice);
     LogGrLivArea = Log(GrLivArea);
