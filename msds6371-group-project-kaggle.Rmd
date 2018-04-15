@@ -91,13 +91,18 @@ The fit diagnostics in Image 005 and Regression statistics in Image 006 display 
 
 #### Outlier Analysis
 
+After analyzing the scatterplots, we noticed the two observations that were from homes over 4500 square feet.  Since these two observations have high leverage, we decided to try to find other effects these observations might have. Looking at the group ranking of these observations we decided to remove these observations due to the effect these had on our model assumptions.  We were more interested in the observations that were centered around the middle of the ranking.
+
+Additionally, the GrLivArea of these observations for the Edwards Neighborhood is thought to be not representative of this area.  These values were extremely above the third quartile.  Give this we justified removing these observations.
+
 ### Comparison of Competing Models
 
-SalePrice    = 19972  +  87.163*GrLivArea   +  68382*d1  + 54705*d2  +  -12416*d3  +  -57.412*int1  +  -32.847*int2  +  31.351*int3
-LogSalePrice = 5.844  +  0.845*LogGrLivArea +  0.094*d2  + 0.219*d3  +  -0.268*centLint2  +  0.169*centLint3
+#### Models
+1. SalePrice    = 19972  +  87.163*GrLivArea   +  68382*d1  + 54705*d2  +  -12416*d3  +  -57.412*int1  +  -32.847*int2  +  31.351*int3
+1. LogSalePrice = 5.844  +  0.845*LogGrLivArea +  0.094*d2  + 0.219*d3  +  -0.268*centLint2  +  0.169*centLint3
 
 ### Parameters
-* Estimates
+* Estimates - refer to model #2 above for the parameter estimates
 * Interpretation
 * Confidence Intervals
 
