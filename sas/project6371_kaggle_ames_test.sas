@@ -277,6 +277,32 @@ data test0;
   if missing(BsmtHalfBath) then BsmtHalfBath = 0;
   if missing(GarageCars) then GarageCars = 0;
   if missing(GarageArea) then GarageArea = 0;
+
+  /* add log variables from Training model */
+  *LogSalePrice=Log(SalePrice);  /* In */
+  LogLotArea=Log(LotArea);  /* In */
+  LogOverall=log(OverallQual);  /* out, WO Log is better*/
+  LogGrLiving=log(GrLivArea);  /* In, Log is better */
+  LogNumCarGar=log(GarageCars);  /* Out, WO Log is better */
+  LogGarArea=log(GarageArea);  /* In */
+  LogTotalBsmtSF=log(TotalBsmtSF);  /* In */
+  Log1stFlrSF=Log(_1stFlrSF);  /* In */
+  LogFullBath=log(FullBath);  /* Out, Use WO log */
+  LogTotRmsAbvGrd=log(TotRmsAbvGrd);  /* Out, Use WO log */
+  /*YearBuilt, YearRemodAdd, GarageYrBlt - No Need to Log */
+  LogMasVnrArea=Log(MasVnrArea+1);  /* Potentially In */
+ 
+  /*LogMasVnrArea = Log(MasVnrArea+1);
+  LogBsmtFinSF1 = Log(BsmtFinSF1+1);
+  Log1stFlrSF = Log(_1stFlrSF);
+  LogPoolArea = Log(PoolArea+1);
+  LogMiscVal = Log(MiscVal+1);
+  LogGarageArea = Log(GarageArea);
+  LogWoodDeckSF = Log(WoodDeckSF+1);
+  LogOpenPorchSF = Log(OpenPorchSF+1);
+  LogEnclosedPorch = Log(EnclosedPorch+1);
+  Log3SsnPorch = Log(_3SsnPorch+1);
+  LogScreenPorch = Log(ScreenPorch+1);*/
 run;
 
 title "Test0 - Data Set Fixed Missing Values";
