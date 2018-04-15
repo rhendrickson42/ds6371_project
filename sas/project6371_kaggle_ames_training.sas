@@ -287,10 +287,16 @@ title "";
 /* END DATA CLEANUP - after second proc means, no missing values */
 /* **************************************** */
 
+/******************************/
+/** train0 is for Question 2 **/
+/******************************/
 proc sgscatter data=train0;
   plot SalePrice*GrLivArea /group=Neighborhood;
 run;
 
+/******************************/
+/** train0 is for Question 1 **/
+/******************************/
 data trainRed;
   set train0 (keep=Id Neighborhood GrLivArea SalePrice);
 
@@ -360,25 +366,30 @@ run;
 
 /******************************************************************************/
 /******************************************************************************/
-/***********************      Mode Building      ******************************/
+/***********************     Model Building      ******************************/
+
 /* Residual Plot showing possible unequal spread) */
+/* Model for Untransformed Data */
 proc glm data=trainRed plots=all;
   class Nei(ref="BrkSide");
   model SalePrice=GrLivArea | Nei / solution;
+  TITLE "Non Transformed"; 
 run;
 
-  /*************---------------------------------------------------------*/
-  /* Looks Ok as compared to Previous */
+
+/************************************/
+/* Looks Ok as compared to Previous */
 proc glm data=trainRed plots=all;
   class Nei(ref="BrkSide");
   model logSales=GrLivArea | Nei / solution;
+  TITLE "Log-Linear Transformed Data"; 
 run;
 
 proc reg data=trainRed plots=all;
   model logSales=GrLivArea d1 d2 d3 int1 int2 int3/VIF;
 run;
 
-  /*************---------------------------------------------------------*/
+  /************************************/
 proc glm data=trainRed plots=all;
   class Nei(ref="EdwardP");
   model logSales=logLiv | Nei / solution;
@@ -388,9 +399,14 @@ proc reg data=trainRed plots=all;
   model logSales=logLiv d2 d3 centLint2 centLint3/VIF;
   run;
 
-  /**********************************************************************************/
-  /*********************************************************************************/
-  /* Create a Heatmap implementation of a correlation matrix */
+
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+
+
+/* Create a Heatmap implementation of a correlation matrix */
   ods path work.mystore(update) sashelp.tmplmst(read);
 
 proc template;

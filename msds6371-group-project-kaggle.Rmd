@@ -55,34 +55,46 @@ Ames Century 21 real estate would like us to perform the following analysis of h
 
 For the neighborhoods of: BrkSide, Edwards and NAmes, please find a predictive model for home SalePrice based on GrLivArea.  Provide the model assumptions assessment with evidence, as well as data review and outlier analysis.  Please provide estimate or estimates with confidence intervals, and a written conclusion of the relationship of GrLivArea and SalePrice within these neighborhoods.
 
+### Build and Fit the Model
+
 #### Untransformed Data
 
-When looking at plots of the raw data, there is a clear linear relationship between GrLivArea and SalePrice.  However, we can start to see there may be some issues with some of the points on Image 002, Image 003, and Image 004.  These will be explored later.
+Model: SalePrice = beta0 + beta1 * GrLivArea + beta2*d1 + beta3*d2 + beta4*d3 + beta5*int1 + beta6*int2 + beta7*int3
 
-Most of the parameter estimates look good except for d3, int2 and int3.  However the VIF for all estimates are high (See Image 005), the smallest being 22.  This is another sign that outliers should be investigated.
+When looking at plots of the raw data, there is a clear linear relationship between GrLivArea and SalePrice on Image 001.  However, on Image 002 we can see several issues with the data:
+* unequal spread on Residual vs Predicted and Studentized Residual vs Predicted, looks like the variance is increasing
+* the qqplot is curved and the histogram is rather large in the middle suggesting non-normal data
+* Cooks-D and Leverage show points that may have leverage and should be investigated
 
-When looking at the residual plots (Image 006) we can clearly see that Equal Variance is violated when looking athe the Residual and Studentized Residual.  Also, the QQPlot and Histogram displays data that may not be normal.
+When looking at Image 003, most of the parameter estimates look good except for d3, int2 and int3.  The VIF for all estimates are high, the smallest being 22.  This is another sign that outliers should be investigated.
 
 We need to perform outlier analysis and peform transformations to address equal deviation and normality.
 
-#### Transformed Data
+#### Other Transformations
 
-The following transformations were performed to attempt to address the issues found with the untransformed data: Normality and Equal Variance.  Both Log-Linear and Linear-Log did not address these issues with the data.  The final transformation Log-Log did.
+Log-Linear, and Linear_log were both experimented with.  None of the violations were addressed using any of these methods.  In some cases, it made the linear relationship worse with SalePrice.  For brevity, no graphs are provided for these transformations.
 
-##### Log-Log Transformation
+#### Log-Log Transformed Data
 
-When looking at the Log-Log plots (Images 007 to 010) Linearity still holds.  R^2 increased from .57 to .58, and all the VIF's decreased significantly, but some are still above 10.  The d3 and int3 variables are still not statistically significnt, but int2 is now statistically significant.
+Model: SalePrice = beta0 + beta1 * LogGrLivArea + beta3*d2 + beta4*d3 + beta6*centLint2 + beta7*centLint3
 
-When looking at residual plots (Image 012), everything looks much better.  Residuals now have equal variance.  The QQ Plot has MUCh less curve to it.  The histogram looks more normal, but still has a left skew.  Cooks-D shows a few points might have some influence on our model.
+For brevity, some of the interative process for analyzing the data is omitted, but summarised here.  It was found that there was no statistical difference between the BrkSide and Edwards neighborhoods, so these were combined into a single entity.  Also, to address the high VIF values, the interaction variables were centered.
+
+### Assumptions
+When looking at the Log-Log transformed data in Image 004, the linear relationship looks much better.  Also,, when looking at the fit diagnostics in Image 005, we can se that the assumptions are addressed:
+1.There is a clear linear trend with explanatory variables with the LogSalePrice
+1. The histogram looks better and the QQ plot as well, combined with the large number of observations, we can say the data ius normal
+1. All residual plots look like a good random cloud with equal variace across the graph
+1. For independence, we do not know how the data were collected, and will assume that they are independent
+
+The fit diagnostics in Image 005 and Regression statistics in Image 006 display that all issues are addressed with the data.
 
 #### Outlier Analysis
 
-### Assumptions
-* Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
-* Normality (Residual: Scatter, QQ Plot, Histogram)
-* Equal Standard Deviation (Residual Scatter Plots)
-
 ### Comparison of Competing Models
+
+SalePrice    = 19972  +  87.163*GrLivArea   +  68382*d1  + 54705*d2  +  -12416*d3  +  -57.412*int1  +  -32.847*int2  +  31.351*int3
+LogSalePrice = 5.844  +  0.845*LogGrLivArea +  0.094*d2  + 0.219*d3  +  -0.268*centLint2  +  0.169*centLint3
 
 ### Parameters
 * Estimates
@@ -140,9 +152,9 @@ When looking at residual plots (Image 012), everything looks much better.  Resid
 ### Question 1
 
 #### Plots of Untransformed Data
-![BrkSide](images/Untransformed-BrkSide.png)*Image 001*
-![Edwards](images/Untransformed-Edwards.png)*Image 002*
-![NAmes](images/Untransformed-NAmes.png)*Image 003*
+![Neighborhoods](images/image_001.PNG)*Image 001*
+![Untransformed Fit Diagnostics](images/Image_002.PNG)*Image 002*
+![Untransformed Proc Reg](images/image_003.PNG)*Image 003*
 ![Other Neighborhoods](images/Untransformed-Others.png)*Image 004*
 ![MLR Parameter Estimates](images/Untransformed-MLR-Estimates.png)*Image 005*
 ![MLR Residual Plots](images/Untransformed-MLR-Residuals.png)*Image 006*
