@@ -1,12 +1,8 @@
-
-/* 
-Data Sets: 
-- Train0 - Kaggle Training Data Set 
-- TrainRed - Kaggle Training Data Set Reduced for question 1  
+/* Data Sets: 
+   - Train0 - Kaggle Training Data Set 
+   - TrainRed - Kaggle Training Data Set Reduced for question 1  
 */ 
-
 filename CSV URL "https://dl.dropboxusercontent.com/spa/afq05cp80hp4ezn/downloads/public/msds-data/train.csv";
-
 
 data TRAIN0;
 %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
@@ -261,11 +257,9 @@ input
 if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
 run;
 
-
 /* **************************************** */
 /* DATA CLEANUP - use proc means to show missing values*/
 /* **************************************** */
-
 title "Train0 - Data Set Missing Values";
 proc means data=train0 nmiss n; run;
 
@@ -282,11 +276,9 @@ title "Train0 - First 10";
 proc print data=train0 (obs=10);
 run;
 title "";
-
 /* **************************************** */
 /* END DATA CLEANUP - after second proc means, no missing values */
 /* **************************************** */
-
 /********************************/
 /** train0 is for Question 2  ***/
 /** trainraw3 is Q1 Unmodified **/
@@ -311,7 +303,6 @@ data train0raw;
   int3 = d3 * GrLivArea;
 run;
 
-
 proc sort data=train0raw;
   by descending GrLivArea;
 run;
@@ -323,7 +314,6 @@ run;
 proc sgscatter data=train0raw;
   plot SalePrice*GrLivArea / group=Nei reg;
 run;
-
 /**************************************************/
 /*************     Model Building      ************/
 /* Residual Plot showing possible unequal spread) */
@@ -338,12 +328,9 @@ proc reg data=train0raw plots=all;
   model SalePrice = GrLivArea d1 d2 d3 int1 int2 int3 / VIF;
   TITLE "Un-Transformed Data";
 run;
-
-
 /******************************************************************************/
 /************* Question 1 Tranformed Data *************************************/
 /******************************************************************************/
-
 /*************************************************/
 /** train0 is for Question 1 - final model data **/
 /**        outliers are removed as well         **/
@@ -391,7 +378,6 @@ proc sgscatter data=trainRed;
   TITLE "Log-Log Transformed Data";
 run;
 
-
 /**************************************************/
 /*************     Model Building      ************/
 
@@ -406,16 +392,14 @@ proc reg data=trainRed plots=all;
   TITLE "Log-Log Transformed Data";
 run;
 
-
-
 /**************************************************/
 /*************     Model Comparison   *************/
 proc reg data=train0raw plots=all;
-  model SalePrice = GrLivArea d1 d2 d3 int1 int2 int3 / VIF;
+  model SalePrice = GrLivArea d1 d2 d3 int1 int2 int3 / PRESS VIF CLM P;
   TITLE "Un-Transformed Data";
 run;
 
 proc reg data=trainRed plots=all;
-  model logSales=logLiv d2 d3 centLint2 centLint3 / VIF;
+  model logSales=logLiv d2 d3 centLint2 centLint3 / PRESS VIF CLM P;
   TITLE "Log-Log Transformed Data";
 run;
