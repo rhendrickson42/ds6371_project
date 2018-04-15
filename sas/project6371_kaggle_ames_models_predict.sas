@@ -57,7 +57,7 @@ proc glmselect data=train001 testdata=test001 plots(stepaxis = number) = (criter
 class Neighborhood SaleCondition;
 model LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea 
     LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
-    YearRemodAdd/selection=stepwise(choose=CV stop=CV) CVDETAILS;
+    YearRemodAdd/selection=stepwise(choose=CV stop=CV) CVDETAILS=ALL;
 output out = results p = Predict;
 run;
 
@@ -83,3 +83,9 @@ PROC EXPORT DATA= results0
   DBMS=CSV REPLACE;
   PUTNAMES=YES;
 RUN;
+
+
+/* Forward Selection method , stats=PRESS used to get CV Press Score */
+/*
+proc glmselect data=train001 testdata=test001
+*/

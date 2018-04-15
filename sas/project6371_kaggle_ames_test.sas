@@ -281,16 +281,16 @@ data test0;
   /* add log variables from Training model */
   *LogSalePrice=Log(SalePrice);  /* In */
   LogLotArea=Log(LotArea);  /* In */
-  LogOverall=log(OverallQual);  /* out, WO Log is better*/
+  *LogOverall=log(OverallQual);  /* out, WO Log is better*/
   LogGrLiving=log(GrLivArea);  /* In, Log is better */
-  LogNumCarGar=log(GarageCars);  /* Out, WO Log is better */
-  LogGarArea=log(GarageArea);  /* In */
-  LogTotalBsmtSF=log(TotalBsmtSF);  /* In */
+  *LogNumCarGar=log(GarageCars);  /* Out, WO Log is better */
+  LogGarArea=log(GarageArea + 1);  /* In */
+  LogTotalBsmtSF=log(TotalBsmtSF + 1);  /* In */
   Log1stFlrSF=Log(_1stFlrSF);  /* In */
-  LogFullBath=log(FullBath);  /* Out, Use WO log */
-  LogTotRmsAbvGrd=log(TotRmsAbvGrd);  /* Out, Use WO log */
+  *LogFullBath=log(FullBath);  /* Out, Use WO log */
+  *LogTotRmsAbvGrd=log(TotRmsAbvGrd);  /* Out, Use WO log */
   /*YearBuilt, YearRemodAdd, GarageYrBlt - No Need to Log */
-  LogMasVnrArea=Log(MasVnrArea+1);  /* Potentially In */
+  LogMasVnrArea=Log(MasVnrArea + 1);  /* Potentially In */
  
   /*LogMasVnrArea = Log(MasVnrArea+1);
   LogBsmtFinSF1 = Log(BsmtFinSF1+1);
@@ -309,7 +309,7 @@ title "Test0 - Data Set Fixed Missing Values";
 proc means data=test0 nmiss n; run;
 
 title "Test0 - First 5";
-proc print data=test1 (obs=5);
+proc print data=test0 (obs=5);
 run;
 
 
