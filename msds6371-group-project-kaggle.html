@@ -241,7 +241,24 @@ $(document).ready(function () {
 <h3>Parameters</h3>
 <ul>
 <li>Estimates - refer to model #2 above for the parameter estimates</li>
-<li>Interpretation</li>
+<li>Interpretation
+<ul>
+<li>Reference category: BrkSide+Edwards
+<ul>
+<li>beta0 - The median SalePrice of houses that are located either in the Neighborhoods of BrkSide or Edwards,and has the GrLivArea of 1</li>
+<li>beta1 - Doubling the GrLivArea is associated with 1.796 increase of the median SalePrice, roughly a 79.6% increase in median price.</li>
+</ul></li>
+<li>Category: NAmes
+<ul>
+<li>beta2 - The difference between the median price of a house in NAmes and BrkSide+Edwards neighborhoods, that has a GrLivArea of 1</li>
+<li>beta4 - The difference in slope of the regression line of LogGrLivArea when Neighborhood is NAmes and the slope when the Neighborhood is equal to BrkSide+Edwards.</li>
+</ul></li>
+<li>Category: Others
+<ul>
+<li>beta3 - The difference between the median price of a house in Others and BrkSide+Edwards neighborhoods, that has a GrLivArea of 1</li>
+<li>beta5 - The difference in slope of the regression line of LogGrLivArea when Neighborhood is Others and the slope when the Neighborhood is equal to BrkSide+Edwards.</li>
+</ul></li>
+</ul></li>
 <li>Confidence Intervals - refer to Image 007 for 95% confidence interval for the individual parameters.</li>
 </ul>
 </div>

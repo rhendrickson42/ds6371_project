@@ -115,9 +115,19 @@ Image 007 and Image 008 capture the SAS output for the Untransformed and Log-Log
 ### Parameters
 * Estimates - refer to model #2 above for the parameter estimates
 * Interpretation
+    * Reference category: BrkSide+Edwards
+        * beta0 - The median SalePrice of houses that are located either in the Neighborhoods of BrkSide or Edwards,and has the GrLivArea of 1
+        * beta1 - Doubling the GrLivArea is associated with 1.796 increase of the median SalePrice, roughly a 79.6% increase in median price.
+    * Category: NAmes
+        * beta2 - The difference between the median price of a house in NAmes and BrkSide+Edwards neighborhoods, that has a GrLivArea of 1
+        * beta4 - The difference in slope of the regression line of LogGrLivArea when Neighborhood is NAmes and the slope when the Neighborhood is equal to BrkSide+Edwards.
+    * Category: Others
+        * beta3 - The difference between the median price of a house in Others and BrkSide+Edwards neighborhoods, that has a GrLivArea of 1
+        * beta5 - The difference in slope of the regression line of LogGrLivArea when Neighborhood is Others and the slope when the Neighborhood is equal to BrkSide+Edwards.
 * Confidence Intervals - refer to Image 007 for 95% confidence interval for the individual parameters.
 
 ### Conclusion
+
 
 \pagebreak
 
