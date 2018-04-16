@@ -52,6 +52,29 @@ output out = results p = Predict;
 run;
 */ 
 
+/* 1. Forward Selection method , stats=PRESS used to get CV Press Score */
+/*
+proc glmselect data=train001 testdata=test001 plots(stepaxis = number) = (criterionpanel ASEPlot);
+model LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea 
+    LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
+    YearRemodAdd
+ /selection=Forward(stop=CV) cvmethod=random(5) stats =adjrsq;
+output out = results p = Predict;
+run;
+*/
+
+/* 2. Backward Selection method , stats=PRESS used to get CV Press Score */
+/*
+proc glmselect data=train001 testdata=test001 plots(stepaxis = number) = (criterionpanel ASEPlot);
+model LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea 
+    LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
+    YearRemodAdd
+ /selection=Backward(stop=CV) cvmethod=random(5) stats =adjrsq;
+output out = results p = Predict;
+run;
+*/
+
+/* 3. stepwise model */ 
 title "Proc GLM on Train001 - 5-Fold Cross Validation. (output predictions, after observation 1460)";
 proc glmselect data=train001 testdata=test001 plots(stepaxis = number) = (criterionpanel ASEPlot);
 class Neighborhood SaleCondition;
@@ -62,8 +85,16 @@ output out = results p = Predict;
 run;
 
 
-/* can't have negative predictions because of RMLSE */
-/* also must have only two columns with appropriate labels. */
+/* 4. Forward Selection method , stats=PRESS used to get CV Press Score */
+/*
+proc glmselect data=train001 testdata=test001 plots(stepaxis = number) = (criterionpanel ASEPlot);
+model LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea 
+    LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
+    YearRemodAdd
+ /selection=Forward(select=SL) stats=all;
+output out = results p = Predict;
+run;
+*/
 
 data results0;
 set results;
@@ -79,13 +110,9 @@ run;
 
 
 PROC EXPORT DATA= results0 
-  OUTFILE = 'd:\temp\kaggle_predict.csv' replace
+  OUTFILE = 'd:\temp\kaggle_predict_stepwise.csv' replace
   DBMS=CSV REPLACE;
   PUTNAMES=YES;
 RUN;
 
 
-/* Forward Selection method , stats=PRESS used to get CV Press Score */
-/*
-proc glmselect data=train001 testdata=test001
-*/
