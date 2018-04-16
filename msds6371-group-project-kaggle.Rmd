@@ -7,11 +7,11 @@ author:
 - Mike Kelleher
 date: "April 15, 2018"
 output: 
-  html_document:
+  pdf_document:
     toc: true
     toc_depth: 2
     fig_caption: yes
-  pdf_document:
+  html_document:
     toc: true
     toc_depth: 2
     fig_caption: yes
@@ -128,6 +128,11 @@ Image 007 and Image 008 capture the SAS output for the Untransformed and Log-Log
 
 ### Conclusion
 
+The relationship between SalePrice on GrLivArea of houses in the BrkSide and Edwards Neighborhoods were not found to be significantly different.  In general, when you double the GrLivArea of a house in the BrkSide and Edwards Neighborhoods, the median SalePrice increases by a factor of 79.6%.  The 95% confidence interval for this increase is between a 72% and 82.4% increase in median SalePrice.
+
+The NAmes Neighborhood starting median price is about 10% more than the BrkSide and Edwards Neighborhoods.  A doubling of the GrLivArea of houses in this Neighborhood is associated with a 49.2% increase in the median SalePrice.  The 95% confidence interval for this increase in between a 32% and 69% increase in median SalePrice.
+
+Because this was an observational study any causal inferences made from this would be speculative.  But we can say there is a correlation between SalePrice and GrLivArea for this population of homes in Ames, Iowa.
 
 \pagebreak
 
@@ -142,10 +147,10 @@ The custom model is one of the three preceding models .  The  custom model  is t
 
 ### Model Selection Process
 
-1. We ran heat map of corelation between sales price and the different numerical variables 
-2. we shortlisted the  variables that has highest corelation with Sales price.
-3. Then we did log transformation on all numberic variables  and again check the corelation with sales price.Then identified some more 
-   varaibles that has heigh corelation with sales price.
+1. We ran heat map of correlation between sales price and the different numerical variables 
+2. we shortlisted the  variables that has highest correlation with Sales price.
+3. Then we did log transformation on all numeric variables  and again check the correlation with sales price.Then identified some more 
+   variables that has high correlation with sales price.
 4. After performing above step, we identify to 10 variables that has high correlation with sales price.
 5. Then we did the matrix scatter plot between these 10 variables and sales price, to visualize the correlation between sales price and     these variables; and visualize the correlation between explanatory variables.
 6. We also found that among categorical variable ,neighbor hood and sales condition were relevant to predict the sales price . Adding them to the model , increased adjusted r^2 and decreased the RMSE. 
@@ -154,7 +159,7 @@ The custom model is one of the three preceding models .  The  custom model  is t
 8. We  passed the same variable to  Forward/Backward/Stepwise  and we got same parameters back . All were significant.
 9. We ran this model in SAS to validate model assumptions and we found the observations( # 31,411,632 and 1417) having high Studentized residuals that has 5 SD away. We investigated these observations and decided to delete them.
 10 . Then reran the model and found out that all the assumptions has met
-11. We ran the cross validation on the traing data set  and then obtain relevant cv test score.
+11. We ran the cross validation on the training data set  and then obtain relevant cv test score.
 12. We added sales price column to test data set,then ran the model . The observations and Predictions are inserted into a result data set, which was presented to Kaggles and results were given by Kaggle score . The results are shared in conclusion section.
 
 #### Forward
@@ -196,9 +201,9 @@ The Forward selection model is satisfying all below condition after performing t
 | Stepwise          | 0.8801      | 23.2     | .201         |
 | Custom*           | 0.8801      | 23.2     | .201         |
  
- * custom method choosen was Forward(select=SL)
+ * custom method chosen was Forward(select=SL)
 ### Conclusion
-Based on above table , all the models selection is derving similar results . Any way we are going ahead with Stepwise model for deriving conclusion.
+Based on above table , all the models selection is deriving similar results . Any way we are going ahead with Stepwise model for deriving conclusion.
 
 LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
 
@@ -206,10 +211,15 @@ This model has adjusted R^2 =.8801 , CV Press=23.2  and RMSE=.021 , this model f
 1. Residual: Scatter, QQ Plot, Histogram
 2. Equal Standard Deviation (Residual Scatter Plots)
 3. Cooks D is looking good.
-4. We assums there is independence.
+4. We assume there is independence.
 
-The Kaggle score is .201
+### The Kaggle score is .201
+
+![Kaggle Score](images/Kaggle-submission-results2.PNG){width=12,height=8}
+
+
 \pagebreak
+
 
 ## Appendix
 
@@ -639,13 +649,13 @@ run;
 ## Question 1 Plots of Log-Log Data
 
 ### Image 004
-![Neighborhoods](images/image_004.PNG)*Image 004*
+![Neighborhoods](images/image_004.PNG)
 
 ### Image 005
-![Fit Diagnostics](images/image_005.PNG)*Image 005*
+![Fit Diagnostics](images/image_005.PNG)
 
 ### Image 006
-![MLR Proc Reg](images/image_006.PNG)*Image 006*
+![MLR Proc Reg](images/image_006.PNG)
 
 ## Question 1 Miscellaneous Plots
 
