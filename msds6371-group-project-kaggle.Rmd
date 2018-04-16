@@ -38,7 +38,7 @@ This dataset is roughly 450k with 1460 observations of 81 variables.  To read an
 
 ### test.csv
 
-This dataset, is roughly 441k with 1459 observation of 80 variables.  This has one less observation: SalesPrices.  This is due to the fact it is meant to be used for cross-validation, and does not require this variable because we are meant to predict that with our models.
+This dataset, is roughly 441k with 1459 observation of 80 variables.  This has one less observation: SalePrice.  This is due to the fact it is meant to be used for cross-validation, and does not require this variable because we are meant to predict that with our models.
 
 ### Primary Variables
 
@@ -70,7 +70,7 @@ When looking at plots of the raw data, there is a clear linear relationship betw
 
 When looking at Image 003, most of the parameter estimates look good except for d3, int2 and int3.  The VIF for all estimates are high, the smallest being 22.  This is another sign that outliers should be investigated.
 
-We need to perform outlier analysis and peform transformations to address equal deviation and normality.
+We need to perform outlier analysis and perform transformations to address equal deviation and normality.
 
 #### Other Transformations
 
@@ -82,31 +82,31 @@ Log-Linear, and Linear_log were both experimented with.  None of the violations 
 SalePrice = beta0 + beta1 * LogGrLivArea + beta3*d2 + beta4*d3 + beta6*centLint2 + beta7*centLint3
 ```
 
-For brevity, some of the interative process for analyzing the data is omitted, but summarised here.  It was found that there was no statistical difference between the BrkSide and Edwards neighborhoods, so these were combined into a single entity.  Also, to address the high VIF values, the interaction variables were centered.
+For brevity, some of the iterative process for analyzing the data is omitted, but summarized here.  It was found that there was no statistical difference between the BrkSide and Edwards neighborhoods, so these were combined into a single entity.  Also, to address the high VIF values, the interaction variables were centered.
 
 ### Assumptions
-When looking at the Log-Log transformed data in Image 004, the linear relationship looks much better.  Also,, when looking at the fit diagnostics in Image 005, we can se that the assumptions are addressed:
+When looking at the Log-Log transformed data in Image 004, the linear relationship looks much better.  Also,, when looking at the fit diagnostics in Image 005, we can see that the assumptions are addressed:
 1.There is a clear linear trend with explanatory variables with the LogSalePrice
-1. The histogram looks better and the QQ plot as well, combined with the large number of observations, we can say the data ius normal
-1. All residual plots look like a good random cloud with equal variace across the graph
+1. The histogram looks better and the QQ plot as well, combined with the large number of observations, we can say the data is normal
+1. All residual plots look like a good random cloud with equal variance across the graph
 1. For independence, we do not know how the data were collected, and will assume that they are independent
 
 The fit diagnostics in Image 005 and Regression statistics in Image 006 display that all issues are addressed with the data.
 
 #### Outlier Analysis
 
-After analyzing the scatterplots, we noticed the two observations that were from homes over 4500 square feet.  Since these two observations have high leverage, we decided to try to find other effects these observations might have. Looking at the group ranking of these observations we decided to remove these observations due to the effect these had on our model assumptions.  We were more interested in the observations that were centered around the middle of the ranking.
+After analyzing the scatter plots, we noticed the two observations that were from homes over 4500 square feet.  Since these two observations have high leverage, we decided to try to find other effects these observations might have. Looking at the group ranking of these observations we decided to remove these observations due to the effect these had on our model assumptions.  We were more interested in the observations that were centered around the middle of the ranking.
 
 Additionally, the GrLivArea of these observations for the Edwards Neighborhood is thought to be not representative of this area.  These values were extremely above the third quartile.  Give this we justified removing these observations.
 
 ### Comparison of Competing Models
 
-| Models        | Adusted R^2 | CV Press    |
-|---------------|-------------|-------------|
-| Untransformed | 0.5696      | 4.00198 E12 |
-| Log-Log       | 0.5808      | 97.939      |
+| Models        | Adjusted R^2 | CV Press    |
+|---------------|--------------|-------------|
+| Untransformed | 0.5696       | 4.00198 E12 |
+| Log-Log       | 0.5808       | 97.939      |
 
-Image 007 and Image 008 capture the SAS output for the Untransformned and Log-Log transformed models respectively.
+Image 007 and Image 008 capture the SAS output for the Untransformed and Log-Log transformed models respectively.
 
 #### Models
 1. `SalePrice    = 19972  +  87.163*GrLivArea   +  68382*d1  + 54705*d2  +  -12416*d3  +  -57.412*int1  +  -32.847*int2  +  31.351*int3`
