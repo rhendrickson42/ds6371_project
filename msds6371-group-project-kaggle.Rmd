@@ -120,10 +120,9 @@ Image 007 and Image 008 capture the SAS output for the Untransformed and Log-Log
 ### Conclusion
 
 \pagebreak
+
 ## Question 2
-
 ### The Problem
-
 Ames Century 21 real estate would like us to perform the following analysis of homes:
 
 Build the most predictive model for sales prices of homes in all of Ames Iowa.  By using  4 models: one from forward selection, one from backwards elimination, one from stepwise selection, and one the build custom.  
@@ -131,33 +130,43 @@ Build the most predictive model for sales prices of homes in all of Ames Iowa.  
 The custom model is one of the three preceding models .  The  custom model  is the best in terms of being able to predict future sale prices of homes .
 
 
-### Model Selection
+### Model Selection Process
+
+1. We ran heat map of corelation between sales price and the different numerical variables 
+2. we shortlisted the  variables that has highest corelation with Sales price.
+3. Then we did log transformation on all numberic variables  and again check the corelation with sales price.Then identified some more 
+   varaibles that has heigh corelation with sales price.
+4. After performing above step, we identify to 10 variables that has high correlation with sales price.
+5. Then we did the matrix scatter plot between these 10 variables and sales price, to visualize the correlation between sales price and     these variables; and visualize the correlation between explanatory variables.
+6. We also found that among categorical variable ,neighbor hood and sales condition were relevant to predict the sales price . Adding them to the model , increased adjusted r^2 and decreased the RMSE. 
+7. We removed outlier in variable GrLivArea that has < 4000 and all the relevant  variable is given to subset selection process.
+7. We selected the model that has lowest cp score.That are Neighborhood, Sale Condition, OverallQual, LogLotArea, LogGrLiving, LogGarArea, LogTotalBsmtSF  and YearBuilt.
+8. We  passed the same variable to  Forward/Backward/Stepwise  and we got same parameters back . All were significant.
+9. We ran this model in SAS to validate model assumptions and we found the observations( # 31,411,632 and 1417) having high Studentized residuals that has 5 SD away. We investigated these observations and decided to delete them.
+10 . Then reran the model and found out that all the assumptions has met
+11. We ran the cross validation on the traing data set  and then obtain relevant cv test score.
+12. We added sales price column to test data set,then ran the model . The observations and Predictions are inserted into a result data set, which was presented to Kaggles and results were given by Kaggle score . The results are shared in conclusion section.
 
 #### Forward
 
 ##### Assumptions
-
-The Forward selection model is satisfying all below condition after performing transfermation on some of the variables.
+The Forward selection model is satisfying all below condition after performing transformation on some of the variables.
 * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
 * Normality (Residual: Scatter, QQ Plot, Histogram)
 * Equal Standard Deviation (Residual Scatter Plots)
-
-
-After accounting for all other possible confounders (that we measured), and holding them fixed, we estimate that for each additional $100 spent on a student in the U.S. (excluding Alaska), his or her estimated SAT score increases 3.38514 points (p-value from MLR < .0001).  A 95% confidence interval is (1.82, 4.95) points.  
-
 
 #### Backward
 
 ##### Assumptions
-
 * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
 * Normality (Residual: Scatter, QQ Plot, Histogram)
 * Equal Standard Deviation (Residual Scatter Plots)
 
+
+
 #### Stepwise
 
 ##### Assumptions
-
 * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
 * Normality (Residual: Scatter, QQ Plot, Histogram)
 * Equal Standard Deviation (Residual Scatter Plots)
@@ -165,24 +174,32 @@ After accounting for all other possible confounders (that we measured), and hold
 #### Custom
 
 ##### Assumptions
-
 * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory)
 * Normality (Residual: Scatter, QQ Plot, Histogram)
 * Equal Standard Deviation (Residual Scatter Plots)
 
 ### Comparison of Models
-
 | Predictive Models | Adusted R^2 | CV Press | Kaggle Score |
 |-------------------|:-----------:|:--------:|:------------:|
-| Forward           | 0.8801      | 23.6     | .201         |
-| Backward          | 0.8801      | 23.3     | .201         |
-| Stepwise          | 0.8801      | 23.8     | .201         |
-| Custom*           | 0.8518      | 23.2     | .201         |
+| Forward           | 0.8801      | 23.2     | .201         |
+| Backward          | 0.8801      | 23.2     | .201         |
+| Stepwise          | 0.8801      | 23.2     | .201         |
+| Custom*           | 0.8801      | 23.2     | .201         |
  
  * custom method choosen was Forward(select=SL)
 ### Conclusion
+Based on above table , all the models selection is derving similar results . Any way we are going ahead with Stepwise model for deriving conclusion.
 
-Based on after accounting for all other possible confounders (that we measured), and holding them fixed, we estimate that for each additional $100 spent on a student in the U.S. (excluding Alaska), his or her estimated SAT score increases 3.38514 points (p-value from MLR < .0001).  A 95% confidence interval is (1.82, 4.95) points.  
+LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt 
+
+This model has adjusted R^2 =.8801 , CV Press=23.2  and RMSE=.021 , this model fulfill all the assumptions of the multiple linear regression , that are 
+1. Residual: Scatter, QQ Plot, Histogram
+2. Equal Standard Deviation (Residual Scatter Plots)
+3. Cooks D is looking good.
+4. We assums there is independence.
+
+The Kaggle score is .201
+\pagebreak
 
 ## Appendix
 

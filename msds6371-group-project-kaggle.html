@@ -136,6 +136,7 @@ $(document).ready(function () {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#data-description">Data Description</a></li>
 <li><a href="#question-1">Question 1</a></li>
+<li><a href="#question-2">Question 2</a></li>
 <li><a href="#appendix">Appendix</a></li>
 <li><a href="#question-1-sas-code">Question 1 SAS Code</a></li>
 <li><a href="#question-1-plots-of-untransformed-data">Question 1 Plots of Untransformed Data</a></li>
@@ -246,22 +247,38 @@ $(document).ready(function () {
 </div>
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
-<p>## Question 2</p>
+
 </div>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
 <div id="the-problem-1" class="section level3">
 <h3>The Problem</h3>
 <p>Ames Century 21 real estate would like us to perform the following analysis of homes:</p>
 <p>Build the most predictive model for sales prices of homes in all of Ames Iowa. By using 4 models: one from forward selection, one from backwards elimination, one from stepwise selection, and one the build custom.</p>
 <p>The custom model is one of the three preceding models . The custom model is the best in terms of being able to predict future sale prices of homes .</p>
 </div>
-<div id="model-selection" class="section level3">
-<h3>Model Selection</h3>
+<div id="model-selection-process" class="section level3">
+<h3>Model Selection Process</h3>
+<ol style="list-style-type: decimal">
+<li>We ran heat map of corelation between sales price and the different numerical variables</li>
+<li>we shortlisted the variables that has highest corelation with Sales price.</li>
+<li>Then we did log transformation on all numberic variables and again check the corelation with sales price.Then identified some more varaibles that has heigh corelation with sales price.</li>
+<li>After performing above step, we identify to 10 variables that has high correlation with sales price.</li>
+<li>Then we did the matrix scatter plot between these 10 variables and sales price, to visualize the correlation between sales price and these variables; and visualize the correlation between explanatory variables.</li>
+<li>We also found that among categorical variable ,neighbor hood and sales condition were relevant to predict the sales price . Adding them to the model , increased adjusted r^2 and decreased the RMSE.</li>
+<li>We removed outlier in variable GrLivArea that has &lt; 4000 and all the relevant variable is given to subset selection process.</li>
+<li>We selected the model that has lowest cp score.That are Neighborhood, Sale Condition, OverallQual, LogLotArea, LogGrLiving, LogGarArea, LogTotalBsmtSF and YearBuilt.</li>
+<li>We passed the same variable to Forward/Backward/Stepwise and we got same parameters back . All were significant.</li>
+<li>We ran this model in SAS to validate model assumptions and we found the observations( # 31,411,632 and 1417) having high Studentized residuals that has 5 SD away. We investigated these observations and decided to delete them. 10 . Then reran the model and found out that all the assumptions has met</li>
+<li>We ran the cross validation on the traing data set and then obtain relevant cv test score.</li>
+<li>We added sales price column to test data set,then ran the model . The observations and Predictions are inserted into a result data set, which was presented to Kaggles and results were given by Kaggle score . The results are shared in conclusion section.</li>
+</ol>
 <div id="forward" class="section level4">
 <h4>Forward</h4>
 <div id="assumptions-1" class="section level5">
 <h5>Assumptions</h5>
-<p>The Forward selection model is satisfying all below condition after performing transfermation on some of the variables. * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory) * Normality (Residual: Scatter, QQ Plot, Histogram) * Equal Standard Deviation (Residual Scatter Plots)</p>
-<p>After accounting for all other possible confounders (that we measured), and holding them fixed, we estimate that for each additional $100 spent on a student in the U.S. (excluding Alaska), his or her estimated SAT score increases 3.38514 points (p-value from MLR &lt; .0001). A 95% confidence interval is (1.82, 4.95) points.</p>
+<p>The Forward selection model is satisfying all below condition after performing transformation on some of the variables. * Linear Trend (Plots: Response vs Explanatory, Explanatory vs Explanatory) * Normality (Residual: Scatter, QQ Plot, Histogram) * Equal Standard Deviation (Residual Scatter Plots)</p>
 </div>
 </div>
 <div id="backward" class="section level4">
@@ -313,33 +330,35 @@ $(document).ready(function () {
 <tr class="odd">
 <td>Forward</td>
 <td align="center">0.8801</td>
-<td align="center">23.6</td>
+<td align="center">23.2</td>
 <td align="center">.201</td>
 </tr>
 <tr class="even">
 <td>Backward</td>
 <td align="center">0.8801</td>
-<td align="center">23.3</td>
+<td align="center">23.2</td>
 <td align="center">.201</td>
 </tr>
 <tr class="odd">
 <td>Stepwise</td>
 <td align="center">0.8801</td>
-<td align="center">23.8</td>
+<td align="center">23.2</td>
 <td align="center">.201</td>
 </tr>
 <tr class="even">
 <td>Custom*</td>
-<td align="center">0.8518</td>
+<td align="center">0.8801</td>
 <td align="center">23.2</td>
 <td align="center">.201</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>custom method choosen was Forward(select=SL) ### Conclusion</li>
+<li>custom method choosen was Forward(select=SL) ### Conclusion Based on above table , all the models selection is derving similar results . Any way we are going ahead with Stepwise model for deriving conclusion.</li>
 </ul>
-<p>Based on after accounting for all other possible confounders (that we measured), and holding them fixed, we estimate that for each additional $100 spent on a student in the U.S. (excluding Alaska), his or her estimated SAT score increases 3.38514 points (p-value from MLR &lt; .0001). A 95% confidence interval is (1.82, 4.95) points.</p>
+<p>LogSalePrice=Neighborhood SaleCondition OverallQual LogLotArea LogGrLiving LogGarArea LogTotalBsmtSF YearBuilt</p>
+<p>This model has adjusted R^2 =.8801 , CV Press=23.2 and RMSE=.021 , this model fulfill all the assumptions of the multiple linear regression , that are 1. Residual: Scatter, QQ Plot, Histogram 2. Equal Standard Deviation (Residual Scatter Plots) 3. Cooks D is looking good. 4. We assums there is independence.</p>
+<p>The Kaggle score is .201 </p>
 </div>
 </div>
 <div id="appendix" class="section level2">
@@ -810,7 +829,7 @@ run;</code></pre>
 </div>
 <hr />
 </div>
-<div id="question-2" class="section level3">
+<div id="question-2-1" class="section level3">
 <h3>Question 2</h3>
 </div>
 </div>
